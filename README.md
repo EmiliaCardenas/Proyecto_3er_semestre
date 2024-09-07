@@ -10,7 +10,7 @@ La finalidad es poder organizar los componentes en orden alfabético o numérica
 
 ### Los atributos son:
 
-Grupo - Nombre del grupo
+Año - Año de nacimiento del integrante
 
 Integrante - Nombre del integrante
 
