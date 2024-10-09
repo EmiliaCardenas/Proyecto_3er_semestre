@@ -1,3 +1,15 @@
+/*
+Proyecto Organizador de cartas de K-pop
+Emilia Cárdenas Lobatón
+A01706807
+
+Este apartado define los algoritmos de busqueda a utilizar
+Se utiliza una busqueda Secuencial Iterativa
+Mejor: O(1)
+Promedio: O(n)
+Peor: O(n)
+El cual busca la posicion del valor dado
+*/
 #ifndef BUSQUEDA_H_
 #define BUSQUEDA_H_
 #include <iostream>
@@ -11,7 +23,17 @@ class Buscar{
     int busqSecuencialStr(std::vector<T>& v, std::string val);
 };
 
-//Busqueda para integrers
+/*
+busqSecuencialInt - busqueda iteratiba del tipo integrer
+
+Utilizando un verctor y un valor dado, el algoritmo
+busca por cada valor del vector hasta encontralo.
+Sumando uno por cada paso de valor y así tener su posicion
+
+@param std::vector<T> &v debe ser: un vector
+@param int i debe ser: un int del vector
+@return int i debe ser: un int positivo
+*/
 template <class T>
 int Buscar<T>::busqSecuencialInt(std::vector<T>& v, int val){
   for(int i=0; i<v.size();i++){
@@ -22,7 +44,17 @@ int Buscar<T>::busqSecuencialInt(std::vector<T>& v, int val){
   return -1;
 };
 
-//Busqeuda para strings
+/*
+busqSecuencialStr - busqueda iteratiba del tipo string
+
+Utilizando un verctor y un valor dado, el algoritmo
+busca por cada valor del vector hasta encontralo.
+Sumando uno por cada paso de valor y así tener su posicion
+
+@param std::vector<T> &v debe ser: un vector
+@param string val debe ser: un string del vector
+@return int i debe ser: un int positivo
+*/
 template <class T>
 int Buscar<T>::busqSecuencialStr(std::vector<T>& v, std::string val){
   for(int i=0; i<v.size();i++){
