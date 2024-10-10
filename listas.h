@@ -58,6 +58,7 @@ class List{
     T insertion(T val); 
     T search(T val);
     T update(T val,T val2);
+    T deleteValue(T val);
 
     std::vector<T> toVector() const; 
 
@@ -240,4 +241,56 @@ std::string List<T>::toStringBackward() const {
   aux << "]";
   return aux.str();
 }
+
+/*
+deleteValue - funcion que elimina el valor dado
+
+Recorre cada valor de la lista hasta poder llegar
+a tener el valor igual al dado. Una vez lo encuentra
+lo elimina, y regresa los valores sin el que
+se elimino.
+
+@param T val debe ser: la posicion dependiendo del main
+@return T eliminado debe ser: los valores de la lista sin el
+valor eliminado
+*/
+template <class T>
+T List<T>::deleteValue(T val){
+  Link<T>* current = head;
+  Link<T>* prev = NULL;
+  T eliminado;
+
+  if (current->value == val) {
+    eliminado = current->value;
+    head = current->next;
+
+    if (head != NULL) {
+      head->prev = NULL;
+    } else {
+      tail = NULL;
+    }
+    delete current;
+    size--;
+    return eliminado;
+  }
+  
+  while (current != NULL && current->value != val) {
+    prev = current;
+    current = current->next;
+  }
+  
+  eliminado = current->value;
+  prev->next = current->next;
+
+  if (current->next != NULL) {
+    current->next->prev = prev;
+  } else {
+    tail = prev;
+  }
+
+  delete current;
+  size--;
+  return eliminado;
+}
+
 #endif
