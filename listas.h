@@ -56,8 +56,7 @@ class List{
     std::string toStringForward() const;
     std::string toStringBackward() const;
     T insertion(T val); 
-    T search(T val);
-    T update(T val,T val2);
+    T update(int pos, T val2);
     T deleteValue(T val);
 
     std::vector<T> toVector() const; 
@@ -107,39 +106,6 @@ T List<T>::insertion(T val){
 }
 
 /*
-search - funcion que busca los valores en la lista dando su posicion
-
-Busca el valor recorriendo la lista y sumando uno a la
-posicion para cuando el valor sea encontrado, devuelva
-el valor de donde se encuentra
-
-@param T val debe ser: un valor dependiendo del main
-@return int pos debe ser: un int positivo
-
-Listas ligadas
-Promedio: Θ(1)
-Peor: O(1)
-
-Listas Doble ligadas
-Promedio: Θ(1)
-Peor: O(1)
-*/
-template <class T>
-T List<T>::search(T val){
-  Link<T> *nuevo;
-  nuevo = head;
-  int pos = 0;
-  while (nuevo != 0){
-    if (nuevo -> value == val){
-      return pos +1;
-    }
-    pos++;
-    nuevo = nuevo -> next;
-  }
-  return -1;
-}
-
-/*
 update - funcion que cambia el valor en una posicion dada
 
 Busca el valor recorriendo la lista, hasta llegar a la posicion dada
@@ -151,21 +117,22 @@ al volver a llamar la lista, esta tenga el valor cambiado
 @return T debe ser: el valor el cual fue cambiado, junto a la lista
 */
 template <class T>
-T List<T>::update(T val, T val2){
-  Link<T> *nuevo = head;
-  int i = 0;
+T List<T>::update(int pos, T val2) {
+    Link<T>* nuevo = head;
+    int i = 0;
 
-  while (nuevo != NULL){
-    if (i == val){
-      T aux = nuevo -> value;
-      nuevo -> value = val2;
-      return aux;
+    while (nuevo != nullptr) {
+        if (i == pos) {
+            T aux = nuevo->value;
+            nuevo->value = val2;
+            return aux;
+        }
+        i++;
+        nuevo = nuevo->next;
     }
-    i++;
-    nuevo = nuevo -> next;
-  }
-  return T();
+    return T();
 }
+
 
 /*
 toVector - funcion que vuelve la lista en un vector
