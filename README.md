@@ -9,6 +9,9 @@ La finalidad es poder organizar los componentes en orden alfabético o numérica
 ### Finalidad segundo avance
 Añadir las listas doblemente enlazadas, junto con la añadidura de los comentarios necesarios en las funciones. Las listas traen consigo diferentes funciones para poder interactuar con ellas. Empezando con añadir valores limitados a la lista, poder buscar su posición en la lista, cambiar un valor con su posición y por ultimo eliminar el valor. Para al final convertirlo en un vector a utilizar junto con las funciones vistas en el primer avance.
 
+### Finalidad tercer avance
+Añadir algun tipo de arbol, en est caso heap para poder demostrar el funcionamiento más eficiente de estos. Tiene una función parecida al algoritmo de busqueda, pero en este caso, internamente lo hace más eficiente. Al igual que la correción de ciertos problemas de logica en el main para llegar a conseguir el resultado final.
+
 ### Complejidad de las listas doblemente enlazadas
 Las listas doblemente ligadas son estructuras de datos donde cada nodo puede referenciar al siguiente nodo y al anterior, facilitando el acceso bidireccional. 
 El promedio en estas listas es Θ(n), con un rendimiento en el peor de los casos de O(n) cuando se busca un valor en una lista larga. El mejor caso, cuando el valor se encuentra en el primer nodo, es O(1).
@@ -21,6 +24,9 @@ Bubble Sort, este método organiza los elementos de un vector en orden ascendent
 
 ### Complejidad de algoritmo de busqueda
 Búsqueda Secuencial Iterativa, este método recorre los elementos de una lista o vector de forma lineal hasta encontrar el valor buscado o llegar al final de la lista. En el mejor caso, la complejidad es O(1), realizando una sola comparación. Sin embargo, en promedio y en el peor caso, la complejidad es O(n), dado que puede ser necesario recorrer toda la lista para encontrar el elemento o confirmar su ausencia.
+
+### Complejidad de algoritmo de arbol heap
+En un árbol Heap, los elementos se organizan de tal manera que cada nodo cumple con la propiedad de Heap, donde el valor de cada nodo es mayor o menorque el de sus hijos. Para la inserción, la complejidad en el mejor caso es O(1) si el elemento se coloca directamente en su posición correcta. Sin embargo, en promedio y en el peor caso, la complejidad es O(log n) debido a que puede ser necesario recorrer hasta la altura del árbol (log n).
 
 Los atributos son:
 Año - Año de nacimiento del integrante
