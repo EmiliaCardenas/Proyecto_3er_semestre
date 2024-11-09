@@ -2,7 +2,7 @@
 Emilia Cárdenas Lobatón
 A01706807
 
-Segundo avance
+Tercer avance
 
 Organizador de cartas (photocards)
 */
@@ -17,7 +17,7 @@ Organizador de cartas (photocards)
 #include "ordenar.h"
 #include "busqueda.h"
 #include "listas.h"
-#include "arbol.h"
+#include "heap.h"
 
 /*
 arrayToString - función para hacer el vector a string
@@ -62,7 +62,7 @@ const std::vector<T3>& v3, const std::vector<T4>& v4) {
 
 int main(){
   int k, l;
-  std::string s, j, m;
+  std::string s, j, m, v;
   List<std::string> lista;
   Buscar<int> buscar;
   Buscar<std::string> buscar2;
@@ -75,10 +75,13 @@ int main(){
     << std::endl;
     std::cout << "Si no has hecho el paso 1 antes, hazlo primero" << std::endl;
     std::cout << "Si eliminas un valor, no puedes oprimir 5" << std::endl;
-    std::cout << "\n---Agregar valores  1" << std::endl;
-    std::cout << "---Cambiar Valor      2" << std::endl;
-    std::cout << "---Eliminar Valor     3" << std::endl;
-    std::cout << "---Ordenamiento       4" << std::endl;
+    std::cout << "\n---Agregar valores   1" << std::endl;
+    std::cout << "---Cambiar Valor     2" << std::endl;
+    std::cout << "---Eliminar Valor    3" << std::endl;
+    std::cout << "---Añadir otro Valor 4" << std::endl;
+    std::cout << "---Ordenamiento      5" << std::endl;
+    std::cout << "---Buscar nombre     6" << std::endl;
+    std::cout << "---Ordenamiento Heap 7" << std::endl;
     std::cout << "Cual es tu eleccion?" << std::endl;
     std::cin >> k;
 
@@ -121,6 +124,15 @@ int main(){
       std::cout << lista.toStringBackward() << "\n" << std::endl;
     }
 
+    if (k == 4){
+      // Agregar un valor más / otra vez
+      std::cout << "\nDa el valor nuevo a añadir" << std::endl;
+      std::cin >> m;
+      std::string encontrar = lista.insertion(m);
+      std::cout << lista.toStringForward() << std::endl;
+      std::cout << lista.toStringBackward() << "\n" << std::endl;
+    }
+
     // Vectores de cada atributo
     std::vector<int> anio = {2000,1999,2000,1998,1997,2001,2000,2000};
     std::vector<std::string> integrante = lista.toVector();
@@ -128,16 +140,8 @@ int main(){
     "Basica","Especial","Basica"};
     std::vector<int> cantidad = {298,85,76,93,98,74,52,67};
 
-    if (k == 4){
+    if (k == 5){
       // Algoritmos de ordenamiento y busqueda
-      std::cout << "\nOrden por cantidad: " << std::endl;
-      Cuatro<int,int,std::string,std::string> prueba1;
-      std::tuple<std::vector<int>,std::vector<int>,std::vector<std::string>,
-      std::vector<std::string>> resultado = prueba1.ordenBubbleTwo
-      (cantidad,anio,integrante,tipo);
-      printVectors(std::get<0>(resultado), std::get<1>(resultado), 
-      std::get<2>(resultado), std::get<3>(resultado));
-
       std::cout << "\nOrden por nombre: " << std::endl;
       Cuatro<std::string,int,int,std::string> prueba3;
       std::tuple<std::vector<std::string>,std::vector<int>,std::vector<int>,
@@ -146,14 +150,38 @@ int main(){
       printVectors(std::get<0>(resultado3), std::get<1>(resultado3), 
       std::get<2>(resultado3), std::get<3>(resultado3));
 
-      std::cout << "\nEn cantidad encontrar Jisung en posición 5" 
-      << std::endl;
+      std::cout << "\nOrden por año: " << std::endl;
+      Cuatro<int,int,std::string,std::string> prueba1;
+      std::tuple<std::vector<int>,std::vector<int>,std::vector<std::string>,
+      std::vector<std::string>> resultado = prueba1.ordenBubbleTwo
+      (anio,cantidad,integrante,tipo);
+      printVectors(std::get<0>(resultado), std::get<1>(resultado), 
+      std::get<2>(resultado), std::get<3>(resultado));
+    }
+
+    if (k == 6){
+      //Algoritmo de busqueda
+      std::cout << "\nQue nombre quieres buscar?" << std::endl;
+      std::cin >> v;
+      std::cout << "\nEn nombre a encontrar " << v << std::endl;
       std::cout << "Se encontro en la posición: " << 
-      buscar2.busqSecuencialStr(integrante,"Jisung")  << std::endl;
+      buscar2.busqSecuencialStr(integrante, v)  << std::endl;
+    }
+
+    if (k == 7){
+      //Arbol heap
+      Heap<int> heap(8);
+      heap.addVector(cantidad);
+      std::cout << "\nOrdena la cantidad" << std::endl;
+      std::cout << "De Menor a Mayor" << std::endl;
+      std::cout << heap.toString() << std::endl;
+      std::cout << "De Mayor a Menor" << std::endl;
+      std::cout << heap.toStringDescending() << std::endl;
     }
 
     std::cout << "\nQuieres volver a entrar (Si/No)?" << std::endl;
     std::cin >> s;
    }
+
   return 0;
 }
