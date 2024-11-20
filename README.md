@@ -1,7 +1,17 @@
 # Proyecto_3er_semestre
 
 ## Organizador de cartas de K-pop (photocards)
-Este proyecto trata de ser un organizador de photocards, las cuales son tarjetas de colección del género musical K-pop. Incluye tambien funciones para añadir, buscar, cambiar el valor o eliminarlas. Siendo un sistema el cual requiere la interacción del usuario, y con instrucciones especificas para que el usuario pueda interactuar de manera correcta, sin que el codigo deje de funcionar.
+Este proyecto trata de ser un organizador de photocards, las cuales son tarjetas de colección del género musical K-pop. Incluye tambien funciones para añadir, buscar, cambiar el valor o eliminarlas. Siendo un sistema el cual requiere la interacción del usuario, y con instrucciones especificas para que el usuario pueda interactuar de manera correcta, sin que el codigo deje de funcionar. Y es muy importante leer las instrucciones dentro del programa para que todo llegue a compilar sin errores.
+
+Los atributos son:
+
+Año - Año de nacimiento del integrante
+
+Cantidad - Número de tarjetas por integrante
+
+Tipo - Si es POB, regular o especial
+
+Integrante - El nombre de los integrantes. Esta ultima es parte de una lista, la cual puede ser editada y utilizada de diferentes maneras. Al igual que tiene añadido un archivo con los nombres, los cuales pueden ser directamente editados en el .txt.
 
 ### Finalidad primer avance
 La finalidad es poder organizar los componentes en orden alfabético o numéricamente ascendente. Se intenta demostrar cómo se haría con cada tema de manera individual y como sería si se ordenarán de manera ligada. Uniendo los cuatro atributos en el ordenamiento. A su vez se creó un algoritmo de búsqueda de integrales y de strings, para poder saber la posición de cierto valor del vector.
@@ -28,9 +38,8 @@ Búsqueda Secuencial Iterativa, este método recorre los elementos de una lista 
 ### Complejidad de algoritmo de arbol heap
 En un árbol Heap, los elementos se organizan de tal manera que cada nodo cumple con la propiedad de Heap, donde el valor de cada nodo es mayor o menorque el de sus hijos. Para la inserción, la complejidad en el mejor caso es O(1) si el elemento se coloca directamente en su posición correcta. Sin embargo, en promedio y en el peor caso, la complejidad es O(log n) debido a que puede ser necesario recorrer hasta la altura del árbol (log n).
 
-Los atributos son:
-Año - Año de nacimiento del integrante
-Cantidad - Número de tarjetas por integrante
-Tipo - Si es POB, regular o especial
+### Complejidad del codigo
+Una vez analizando el uso de cada una de las funciones, y viendo su utilización dentro del main se puede llegar a la conclusión de que la complejidad del codigo es de O(n²). Puede llegar a cambiar dicha complejidad y ser multiplicada por el número de iteraciones del programa a realizar. Siendo que de todas maneras es una de las peores complejidades a tener, gastando mucho tiempo y memoria.
 
-Integrante - El nombre de los integrantes. Esta ultima es parte de una lista, la cual puede ser editada y utilizada de diferentes maneras. Al igual que tiene añadido un archivo con los nombres, los cuales pueden ser directamente editados en el .txt.
+
+
