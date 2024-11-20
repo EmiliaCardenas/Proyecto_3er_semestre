@@ -75,6 +75,7 @@ int main(){
     << std::endl;
     std::cout << "Si no has hecho el paso 1 antes, hazlo primero" << std::endl;
     std::cout << "Si eliminas un valor, no puedes oprimir 5" << std::endl;
+    std::cout << "Al no seguir las instrucciones, el codigo no compilará" << std::endl;
     std::cout << "\n---Agregar valores   1" << std::endl;
     std::cout << "---Cambiar Valor     2" << std::endl;
     std::cout << "---Eliminar Valor    3" << std::endl;
