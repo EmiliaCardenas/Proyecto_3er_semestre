@@ -1,7 +1,10 @@
+https://www.youtube.com/watch?v=t4Svu3DihUQ 
 # Proyecto_3er_semestre
 
 ## Organizador de cartas de K-pop (photocards)
 Este proyecto trata de ser un organizador de photocards, las cuales son tarjetas de colección del género musical K-pop. Incluye tambien funciones para añadir, buscar, cambiar el valor o eliminarlas. Siendo un sistema el cual requiere la interacción del usuario, y con instrucciones especificas para que el usuario pueda interactuar de manera correcta, sin que el codigo deje de funcionar. Y es muy importante leer las instrucciones dentro del programa para que todo llegue a compilar sin errores.
+
+***Especificamente dice que tienen que ser 8 valores exactos, y si no son cargados en el primer paso, el codigo no va a compilar. O si es que no se respeta la cantidad de 8 valores impuestos.***
 
 Los atributos son:
 
@@ -40,6 +43,3 @@ En un árbol Heap, los elementos se organizan de tal manera que cada nodo cumple
 
 ### Complejidad del codigo
 Una vez analizando el uso de cada una de las funciones, y viendo su utilización dentro del main se puede llegar a la conclusión de que la complejidad del codigo es de O(n²). Puede llegar a cambiar dicha complejidad y ser multiplicada por el número de iteraciones del programa a realizar. Siendo que de todas maneras es una de las peores complejidades a tener, gastando mucho tiempo y memoria.
-
-
-
