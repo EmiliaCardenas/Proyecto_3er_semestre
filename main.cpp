@@ -2,8 +2,6 @@
 Emilia Cárdenas Lobatón
 A01706807
 
-Tercer avance
-
 Organizador de cartas (photocards)
 */
 #include <iostream>
@@ -60,6 +58,7 @@ const std::vector<T3>& v3, const std::vector<T4>& v4) {
     }
 }
 
+
 int main(){
   int k, l;
   std::string s, j, m, v;
@@ -114,6 +113,15 @@ int main(){
       std::string encontrar = lista.update(l,m);
       std::cout << lista.toStringForward() << std::endl;
       std::cout << lista.toStringBackward() << "\n" << std::endl;
+
+      std::ofstream archivo("ejemplo.txt");
+      if (archivo.is_open()) {
+        std::string lines = lista.toStringLines();
+        for (size_t i = 0; i < lines.size(); i++) {
+          archivo.put(lines[i]);
+        }
+        archivo.close();
+      }
     }
 
     if (k == 3){
@@ -123,6 +131,15 @@ int main(){
       std::string encontrar = lista.deleteValue(m);
       std::cout << lista.toStringForward() << std::endl;
       std::cout << lista.toStringBackward() << "\n" << std::endl;
+
+      std::ofstream archivo("ejemplo.txt");
+      if (archivo.is_open()) {
+        std::string lines = lista.toStringLines(); 
+        for (size_t i = 0; i < lines.size(); i++) {
+            archivo.put(lines[i]);
+        }
+        archivo.close();
+      }
     }
 
     if (k == 4){
@@ -132,6 +149,15 @@ int main(){
       std::string encontrar = lista.insertion(m);
       std::cout << lista.toStringForward() << std::endl;
       std::cout << lista.toStringBackward() << "\n" << std::endl;
+
+      std::ofstream archivo("ejemplo.txt");
+      if (archivo.is_open()) {
+        std::string lines = lista.toStringLines(); 
+        for (size_t i = 0; i < lines.size(); i++) {
+            archivo.put(lines[i]);
+        }
+        archivo.close();
+      }
     }
 
     // Vectores de cada atributo
