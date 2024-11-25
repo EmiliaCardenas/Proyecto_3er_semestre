@@ -16,13 +16,18 @@ Tipo - Si es POB, regular o especial
 Integrante - El nombre de los integrantes. Esta ultima es parte de una lista, la cual puede ser editada y utilizada de diferentes maneras. Al igual que tiene añadido un archivo con los nombres, los cuales pueden ser directamente editados en el .txt.
 
 ### Finalidad primer avance
-La finalidad es poder organizar los componentes en orden alfabético o numéricamente ascendente. Se intenta demostrar cómo se haría con cada tema de manera individual y como sería si se ordenarán de manera ligada. Uniendo los cuatro atributos en el ordenamiento. A su vez se creó un algoritmo de búsqueda de integrales y de strings, para poder saber la posición de cierto valor del vector.
+La finalidad es poder organizar los componentes en orden alfabético o numéricamente ascendente. Se intenta demostrar cómo se haría con cada tema de manera individual y como sería si se ordenarán de manera ligada. Uniendo los cuatro atributos en el ordenamiento. A su vez se creó un algoritmo de búsqueda de integrales y de strings, para poder saber la posición de cierto valor del vector. 
+**Correciones:** Agregar la complejidad de las funciones en el código.
 
 ### Finalidad segundo avance
 Añadir las listas doblemente enlazadas, junto con la añadidura de los comentarios necesarios en las funciones. Las listas traen consigo diferentes funciones para poder interactuar con ellas. Empezando con añadir valores limitados a la lista, poder buscar su posición en la lista, cambiar un valor con su posición y por ultimo eliminar el valor. Para al final convertirlo en un vector a utilizar junto con las funciones vistas en el primer avance.
+**Correciones:** Agregar la complejidad de las funciones en el readme de manera detallada.
 
 ### Finalidad tercer avance
 Añadir algun tipo de arbol, en est caso heap para poder demostrar el funcionamiento más eficiente de estos. Tiene una función parecida al algoritmo de busqueda, pero en este caso, internamente lo hace más eficiente. Al igual que la correción de ciertos problemas de logica en el main para llegar a conseguir el resultado final.
+**Correciones:** Agregar la inclución de un archivo de texto.
+
+**Correciones finales:** Habilitar la edición de varios factores en el archivo de texto. Añadir la complejidad final del código. 
 
 ### Complejidad de las listas doblemente enlazadas
 Las listas doblemente ligadas son estructuras de datos donde cada nodo puede referenciar al siguiente nodo y al anterior, facilitando el acceso bidireccional. 
