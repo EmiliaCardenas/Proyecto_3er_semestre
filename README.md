@@ -1,4 +1,3 @@
-https://www.youtube.com/watch?v=t4Svu3DihUQ 
 # Proyecto_3er_semestre
 
 ## Organizador de cartas de K-pop (photocards)
