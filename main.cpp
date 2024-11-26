@@ -87,31 +87,38 @@ int main(){
 
     if (k == 1){
       // Añadir valores a la lista
-      std::cout << "\nDebes añadir 8 valores escritos" << std::endl; 
       std::ifstream archivo("ejemplo.txt");
       std::string linea;
       int contador = 0;
 
       if (archivo.is_open()) {
+        int i = 0;
         while (getline(archivo, linea) && contador < 8) {
-          std::cout << "Valor: " << linea << std::endl;
+          std::cout  << "#"<< i << " Valor: " << linea << std::endl;
           lista.insertion(linea);
             contador++;
+            i++;
         }
       }
       archivo.close();
+
+      std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
+      std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << std::endl;
     }
 
     if (k == 2){
       // Cambio de un valor
-      std::cout << "\nDa el valor nuevo a cambiar" << std::endl;
+      std::cout << "\nDa el nombre/valor que quieres cambiar" << std::endl;
       std::cin >> m;
       std::cout << "En que posición?" << std::endl;
       std::cin >> l;
+      std::cout << "\nAhora " << m << " esta en tus fotocards"<< std::endl; 
       std::string encontrar = lista.update(l,m);
+      std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
+      std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << "\n" << std::endl;
 
       std::ofstream archivo("ejemplo.txt");
@@ -129,7 +136,9 @@ int main(){
       std::cout << "\nDa el valor que quieres eliminar" << std::endl;
       std::cin >> m;
       std::string encontrar = lista.deleteValue(m);
+      std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
+      std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << "\n" << std::endl;
 
       std::ofstream archivo("ejemplo.txt");
@@ -147,7 +156,9 @@ int main(){
       std::cout << "\nDa el valor nuevo a añadir" << std::endl;
       std::cin >> m;
       std::string encontrar = lista.insertion(m);
+      std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
+      std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << "\n" << std::endl;
 
       std::ofstream archivo("ejemplo.txt");
