@@ -60,9 +60,12 @@ const std::vector<T3>& v3, const std::vector<T4>& v4) {
 
 
 int main(){
-  int k, l;
-  std::string s, j, m, v;
+  int k;
+  std::string s, j, m, v, l;
   List<std::string> lista;
+  List<std::string> lista_tipo;
+  List<int> lista_cantidad;
+  List<int> lista_anio;
   Buscar<int> buscar;
   Buscar<std::string> buscar2;
 
@@ -77,56 +80,110 @@ int main(){
     std::cout << "Manten los 8 valores de la lista" << std::endl;
     std::cout << "Al no seguir las instrucciones, " << std::endl;
     std::cout << "el codigo no compilará" << std::endl;
-    std::cout << "\n---Cargar valores    1" << std::endl;
-    std::cout << "---Cambiar Valor     2" << std::endl;
-    std::cout << "---Eliminar Valor    3" << std::endl;
-    std::cout << "---Añadir otro Valor 4" << std::endl;
-    std::cout << "---Ordenamiento      5" << std::endl;
-    std::cout << "---Buscar nombre     6" << std::endl;
-    std::cout << "---Ordenamiento Heap 7" << std::endl;
+    std::cout << "\n---Cargar valores     1" << std::endl;
+    std::cout << "---Cambiar nombres    2" << std::endl;
+    std::cout << "---Eliminar nombre    3" << std::endl;
+    std::cout << "---Añadir otro nombre 4" << std::endl;
+    std::cout << "----Ordenamiento      5" << std::endl;
+    std::cout << "---Buscar nombre      6" << std::endl;
+    std::cout << "---Ordenamiento Heap  7" << std::endl;
     std::cout << "Cual es tu eleccion?" << std::endl;
     std::cin >> k;
 
     if (k == 1){
       // Añadir valores a la lista
-      std::ifstream archivo("ejemplo.txt");
       std::string linea;
-      int contador = 0;
-
-      if (archivo.is_open()) {
-        int i = 0;
-        while (getline(archivo, linea) && contador < 8) {
-          std::cout  << "#"<< i << " Valor: " << linea << std::endl;
-          lista.insertion(linea);
-            contador++;
-            i++;
+      int i = 1;
+      std::cout << "Primero se agregan los nombres (strings)"<< std::endl; 
+      std::cout << "Ingresa los nombres. Escribe 'salir' para finalizar:\n";
+      while (true) {
+        std::cout << "#" << i << " Ingresa un nombre: ";
+        std::getline(std::cin, linea);
+        
+        if (linea.empty()) {
+            continue;
         }
-      }
-      archivo.close();
-
+        if (linea == "salir") { 
+            break;
+        }
+        
+        lista.insertion(linea); 
+        i++;
+     }
+      std::cout << "Se han ingresado " << i - 1 << " valores en la lista.\n";
       std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
       std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << std::endl;
+
+      std::ofstream archivo("nombres.txt");
+      if (archivo.is_open()) {
+        std::string lines = lista.toStringLines();
+        for (int i = 0; i < lines.size(); i++) {
+          archivo.put(lines[i]);
+        }
+        archivo.close();
+      }
+
+      int contador = 0;
+      std::string linea2;
+      std::cout << "\nAhora agrega los tipos Especial, Basica y POB (strings)"<<std::endl;
+      while (contador < i-1) {
+        std::cout << "Tipo " << contador + 1 << ": ";
+        std::getline(std::cin, linea2);
+        lista_tipo.insertion(linea2); 
+        contador++;
+     }
+
+     std::ofstream archivo2("tipo.txt");
+      if (archivo2.is_open()) {
+        std::string lines = lista_tipo.toStringLines();
+        for (int i = 0; i < lines.size(); i++) {
+          archivo2.put(lines[i]);
+        }
+        archivo2.close();
+      }
+      
+      int contador2 = 0;
+      std::string input;
+      std::cout << "\nAhora agrega los años de nacimiento (xxxx) (numeros)"<<std::endl;
+      while (contador2 < i-1) {
+        std::cout << "Año " << contador2 + 1 << ": ";
+        std::getline(std::cin, input);
+        int linea3 = std::stoi(input);
+        lista_anio.insertion(linea3); 
+        contador2++;
+     }
+
+      int contador3 = 0;
+      std::string input2;
+      std::cout << "\nAhora agrega la cantidad de photocards (numeros)"<<std::endl;
+      while (contador3 < i-1) {
+        std::cout << "Cantidad " << contador3 + 1 << ": ";
+        std::getline(std::cin, input2);
+        int linea4 = std::stoi(input2);
+        lista_cantidad.insertion(linea4); 
+        contador3++;
+      }
     }
 
     if (k == 2){
       // Cambio de un valor
-      std::cout << "\nDa el nombre/valor que quieres cambiar" << std::endl;
+      std::cout << "\nDa el nuevo valor" << std::endl;
       std::cin >> m;
-      std::cout << "En que posición?" << std::endl;
+      std::cout << "Da el valor a cambiar" << std::endl; 
       std::cin >> l;
       std::cout << "\nAhora " << m << " esta en tus photocards"<< std::endl; 
-      std::string encontrar = lista.update(l,m);
+      bool encontrar = lista.update(l,m);
       std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
       std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << "\n" << std::endl;
 
-      std::ofstream archivo("ejemplo.txt");
+      std::ofstream archivo("nombres.txt");
       if (archivo.is_open()) {
         std::string lines = lista.toStringLines();
-        for (size_t i = 0; i < lines.size(); i++) {
+        for (int i = 0; i < lines.size(); i++) {
           archivo.put(lines[i]);
         }
         archivo.close();
@@ -143,10 +200,10 @@ int main(){
       std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << "\n" << std::endl;
 
-      std::ofstream archivo("ejemplo.txt");
+      std::ofstream archivo("nombres.txt");
       if (archivo.is_open()) {
         std::string lines = lista.toStringLines(); 
-        for (size_t i = 0; i < lines.size(); i++) {
+        for (int i = 0; i < lines.size(); i++) {
             archivo.put(lines[i]);
         }
         archivo.close();
@@ -163,10 +220,10 @@ int main(){
       std::cout << "\nLista de nombres en reversa" << std::endl; 
       std::cout << lista.toStringBackward() << "\n" << std::endl;
 
-      std::ofstream archivo("ejemplo.txt");
+      std::ofstream archivo("nombres.txt");
       if (archivo.is_open()) {
         std::string lines = lista.toStringLines(); 
-        for (size_t i = 0; i < lines.size(); i++) {
+        for (int i = 0; i < lines.size(); i++) {
             archivo.put(lines[i]);
         }
         archivo.close();
@@ -174,11 +231,10 @@ int main(){
     }
 
     // Vectores de cada atributo
-    std::vector<int> anio = {2000,1999,2000,1998,1997,2001,2000,2000};
     std::vector<std::string> integrante = lista.toVector();
-    std::vector<std::string> tipo = {"POB","Especial","Basica","POB", "POB",
-    "Basica","Especial","Basica"};
-    std::vector<int> cantidad = {298,85,76,93,98,74,52,67};
+    std::vector<std::string> tipo = lista_tipo.toVector();
+    std::vector<int> anio = lista_anio.toVector();
+    std::vector<int> cantidad = lista_cantidad.toVector();
 
     if (k == 5){
       // Algoritmos de ordenamiento y busqueda
