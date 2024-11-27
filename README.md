@@ -7,11 +7,11 @@ Este proyecto trata de ser un organizador de photocards, las cuales son tarjetas
 
 Los atributos son:
 
-Año - Año de nacimiento del integrante
+Año - Año de nacimiento del integrante en un archivo .txt.
 
-Cantidad - Número de tarjetas por integrante
+Cantidad - Número de tarjetas por integrante en un archivo .txt.
 
-Tipo - Si es POB, regular o especial
+Tipo - Si es POB, regular o especial en un archivo .txt.
 
 Integrante - El nombre de los integrantes. Esta ultima es parte de una lista, la cual puede ser editada y utilizada de diferentes maneras. Al igual que tiene añadido un archivo con los nombres, los cuales pueden ser directamente editados en el .txt.
 
