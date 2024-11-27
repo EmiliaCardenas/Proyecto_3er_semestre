@@ -72,10 +72,12 @@ int main(){
    while (s == "Si"){
     std::cout << "\nBienvenidx al organizador de photocards" 
     << std::endl;
-    std::cout << "Si no has hecho el paso 1 antes, hazlo primero" << std::endl;
-    std::cout << "Si eliminas un valor, no puedes oprimir 5" << std::endl;
-    std::cout << "Al no seguir las instrucciones, el codigo no compilará" << std::endl;
-    std::cout << "\n---Agregar valores   1" << std::endl;
+    std::cout <<"Si no has hecho el paso 1 antes, hazlo primero"<< std::endl;
+    std::cout << "Si eliminas un valor, no puedes oprimir 5"<< std::endl;
+    std::cout << "Manten los 8 valores de la lista" << std::endl;
+    std::cout << "Al no seguir las instrucciones, " << std::endl;
+    std::cout << "el codigo no compilará" << std::endl;
+    std::cout << "\n---Cargar valores    1" << std::endl;
     std::cout << "---Cambiar Valor     2" << std::endl;
     std::cout << "---Eliminar Valor    3" << std::endl;
     std::cout << "---Añadir otro Valor 4" << std::endl;
@@ -114,7 +116,7 @@ int main(){
       std::cin >> m;
       std::cout << "En que posición?" << std::endl;
       std::cin >> l;
-      std::cout << "\nAhora " << m << " esta en tus fotocards"<< std::endl; 
+      std::cout << "\nAhora " << m << " esta en tus photocards"<< std::endl; 
       std::string encontrar = lista.update(l,m);
       std::cout << "\nLista de nombres en order" << std::endl; 
       std::cout << lista.toStringForward() << std::endl;
@@ -210,7 +212,7 @@ int main(){
       //Arbol heap
       Heap<int> heap(8);
       heap.addVector(cantidad);
-      std::cout << "\nOrdena la cantidad" << std::endl;
+      std::cout << "\nOrdena la cantidad de photocards" << std::endl;
       std::cout << "De Menor a Mayor" << std::endl;
       std::cout << heap.toString() << std::endl;
       std::cout << "De Mayor a Menor" << std::endl;
