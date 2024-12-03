@@ -56,7 +56,7 @@ class List{
     std::string toStringForward() const;
     std::string toStringBackward() const;
     T insertion(T val); 
-    T update(int pos, T val2);
+    bool update(T, T);
     T deleteValue(T val);
     std::string toStringLines();
 
@@ -118,21 +118,20 @@ al volver a llamar la lista, esta tenga el valor cambiado
 @return T debe ser: el valor el cual fue cambiado, junto a la lista
 */
 template <class T>
-T List<T>::update(int pos, T val2) {
-    Link<T>* nuevo = head;
-    int i = 0;
+bool List<T>::update(T oldVal, T newVal) {
+    Link<T>* current = head;
 
-    while (nuevo != nullptr) {
-        if (i == pos) {
-            T aux = nuevo->value;
-            nuevo->value = val2;
-            return aux;
+    while (current != NULL) {
+        if (current->value == oldVal) { 
+            current->value = newVal;
+            return true;  
         }
-        i++;
-        nuevo = nuevo->next;
+        current = current->next;
     }
-    return T();
+
+    return false; 
 }
+
 
 
 /*
